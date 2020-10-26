@@ -27,8 +27,8 @@ Each unit will have it's own release and will be deployed as a branch in a evolv
     - Maven review
 - UD2 - Acceso a ficheros: Marshalling/Unmarshalling
     - Creating and reading text files
-    - Property files
     - Streams & Buffers
+    - Property files
     - Marshalling
 - UD3 - Creación de servicios web. Spring
     - Rest points
