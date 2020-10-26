@@ -1,5 +1,6 @@
 package com.fbmoll.teaching.dataaccess.helper;
 
+import com.fbmoll.teaching.dataaccess.data.ConfigValues;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * com.fbmoll.teaching.dataaccess.helper
@@ -63,7 +65,7 @@ public class FileUtils {
             FileReader fileReader = new FileReader(file);
             buffer = new BufferedReader(fileReader);
             String fileLine = null;
-            while ((fileLine = buffer.readLine()) != null){
+            while ((fileLine = buffer.readLine()) != null) {
                 rtn.add(fileLine);
             }
         } catch (Exception e) {
@@ -77,5 +79,39 @@ public class FileUtils {
                 }
         }
         return rtn;
+    }
+
+    /**
+     * @param path
+     * @return
+     */
+    public ConfigValues loadProperties(String path) {
+        try {
+            ConfigValues configValues = new ConfigValues();
+            Properties properties = new Properties();
+            properties.load(new FileInputStream(path));
+            configValues.setName(properties.getProperty(ConfigurationProperties.Name.toString()));
+            configValues.setPassword(properties.getProperty(ConfigurationProperties.Password.toString()));
+            configValues.setPort(properties.getProperty("port"));
+            configValues.setServer(properties.getProperty("server"));
+            return configValues;
+        } catch (Exception e) {
+            FileUtils.log.error("loading props", e);
+            return null;
+        }
+    }
+
+    public void saveProperties(ConfigValues data, String path) {
+        try {
+            Properties properties = new Properties();
+            properties.setProperty(ConfigurationProperties.Name.toString(), data.getName());
+            properties.setProperty(ConfigurationProperties.Password.toString(), data.getPassword());
+            properties.setProperty("server", data.getServer());
+            properties.setProperty("port", data.getPort());
+            properties.store(new FileOutputStream(path),
+                    "Fichero de configuración molón");
+        } catch (Exception e) {
+            FileUtils.log.error("saving props", e);
+        }
     }
 }
