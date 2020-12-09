@@ -1,5 +1,6 @@
 package com.fbmoll.teaching.dataaccess.helper;
 
+import com.fbmoll.teaching.dataaccess.data.Product;
 import com.fbmoll.teaching.dataaccess.data.Student;
 import org.jeasy.random.EasyRandom;
 
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class DummyUtils {
 
-    public List<Student> genStudents(int size){
+    public List<Student> genStudents(int size) {
         ArrayList<Student> arrData = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             EasyRandom generator = new EasyRandom();
@@ -23,5 +24,16 @@ public class DummyUtils {
         }
         return arrData;
     }
+
+    public List<Product> getProducts() {
+        int numItems = (int) (Math.random() * 100);
+        ArrayList<Product> aux = new ArrayList<>();
+        EasyRandom gen = new EasyRandom();
+        for (int i = 0; i < numItems; i++) {
+            aux.add(gen.nextObject(Product.class));
+        }
+        return aux;
+    }
+
 
 }

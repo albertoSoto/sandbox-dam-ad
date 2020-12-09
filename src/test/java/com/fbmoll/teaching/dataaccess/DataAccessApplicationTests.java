@@ -3,7 +3,7 @@ package com.fbmoll.teaching.dataaccess;
 import com.fbmoll.teaching.dataaccess.data.ConfigValues;
 import com.fbmoll.teaching.dataaccess.data.Student;
 import com.fbmoll.teaching.dataaccess.helper.DummyUtils;
-import com.fbmoll.teaching.dataaccess.helper.FileUtils;
+import com.fbmoll.teaching.dataaccess.helper.FileUtilsHelper;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,15 +18,15 @@ class DataAccessApplicationTests {
     @Test
     void tryCreateFile() {
         String fileName = String.format("%s\\.fbmoll\\test.txt", System.getProperty("user.home"));
-        File file = FileUtils.generateFile(fileName, "dummy Content");
+        File file = FileUtilsHelper.generateFile(fileName, "dummy Content");
         Assert.notNull(file, "Fichero nulo!");
     }
 
     @Test
     void tryCreateAndReadFile() {
         String fileName = String.format("%s\\.fbmoll\\test.data", System.getProperty("user.home"));
-        File file = FileUtils.generateFile(fileName, "Hola\nDonPimpon");
-        List<String> fileContent = FileUtils.readFileLines(fileName);
+        File file = FileUtilsHelper.generateFile(fileName, "Hola\nDonPimpon");
+        List<String> fileContent = FileUtilsHelper.readFileLines(fileName);
         Assert.notEmpty(fileContent, "Tu fichero esta vacío!");
         Assert.isTrue(StringUtils.equals(fileContent.get(0), "Hola"), "Primera linea chunga");
         Assert.isTrue(StringUtils.equals(fileContent.get(1), "DonPimpon"), "Segunda linea chunga");
@@ -35,7 +35,7 @@ class DataAccessApplicationTests {
     @Test
     void validateProperties() {
         String fileName = String.format("%s\\.fbmoll\\myprops.properties", System.getProperty("user.home"));
-        FileUtils fileUtils = new FileUtils();
+        FileUtilsHelper fileUtils = new FileUtilsHelper();
         ConfigValues data = new ConfigValues();
         data.setServer("localhost");
         data.setPort("3306");

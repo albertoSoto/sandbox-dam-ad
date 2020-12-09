@@ -17,10 +17,10 @@ import java.util.Properties;
  *
  * @author berto (alberto.soto@gmail.com)
  */
-public class FileUtils {
-    private static Logger log = LoggerFactory.getLogger(FileUtils.class);
+public class FileUtilsHelper {
+    private static Logger log = LoggerFactory.getLogger(FileUtilsHelper.class);
     private static final String APP_PATH = ".fbmoll";//TODO 2020: Change to project property
-
+    private static final String SERVER_PARAM = "server";
     public static File genUserFile(String fileName, String content) {
         try {
             String pathSeparator = System.getProperty("path.separator");
@@ -96,7 +96,7 @@ public class FileUtils {
             configValues.setServer(properties.getProperty("server"));
             return configValues;
         } catch (Exception e) {
-            FileUtils.log.error("loading props", e);
+            FileUtilsHelper.log.error("loading props", e);
             return null;
         }
     }
@@ -106,12 +106,13 @@ public class FileUtils {
             Properties properties = new Properties();
             properties.setProperty(ConfigurationProperties.Name.toString(), data.getName());
             properties.setProperty(ConfigurationProperties.Password.toString(), data.getPassword());
-            properties.setProperty("server", data.getServer());
+            properties.setProperty(SERVER_PARAM, data.getServer());
+            //TODO 26/10/2020 asoto: Esto es muerte. Quitar ASAP.
             properties.setProperty("port", data.getPort());
             properties.store(new FileOutputStream(path),
                     "Fichero de configuración molón");
         } catch (Exception e) {
-            FileUtils.log.error("saving props", e);
+            FileUtilsHelper.log.error("saving props", e);
         }
     }
 }
