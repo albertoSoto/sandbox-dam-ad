@@ -1,7 +1,7 @@
-package com.fbmoll.teaching.dataaccess.helper;
+package com.fbmoll.teaching.dataaccess.u2.filePersistence.helper;
 
-import com.fbmoll.teaching.dataaccess.data.Product;
-import com.fbmoll.teaching.dataaccess.data.Student;
+import com.fbmoll.teaching.dataaccess.u2.filePersistence.data.Product;
+import com.fbmoll.teaching.dataaccess.u2.filePersistence.data.Student;
 import org.jeasy.random.EasyRandom;
 
 import java.util.ArrayList;

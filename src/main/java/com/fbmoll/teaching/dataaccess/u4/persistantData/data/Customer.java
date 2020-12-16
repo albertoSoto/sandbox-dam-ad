@@ -1,9 +1,7 @@
-package com.fbmoll.teaching.dataaccess.persistantData;
+package com.fbmoll.teaching.dataaccess.u4.persistantData.data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * com.fbmoll.teaching.dataaccess.persistantData
@@ -12,13 +10,24 @@ import javax.persistence.Id;
  *
  * @author berto (alberto.soto@gmail.com)
  */
+//@Entity(name = "customers")
 @Entity
 public class Customer {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "superfirst_name")
     private String firstName;
+
     private String lastName;
+
+    private Date creationDate;
+
+    @PrePersist
+    public void onPrePersist() {
+        creationDate = new Date();
+    }
 
     protected Customer() {}
 
@@ -44,5 +53,17 @@ public class Customer {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
     }
 }

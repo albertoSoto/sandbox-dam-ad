@@ -1,11 +1,10 @@
-package com.fbmoll.teaching.dataaccess.data;
+package com.fbmoll.teaching.dataaccess.u2.filePersistence.data;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.xml.bind.annotation.*;
-import java.io.Serializable;
 import java.util.List;
 
 /**

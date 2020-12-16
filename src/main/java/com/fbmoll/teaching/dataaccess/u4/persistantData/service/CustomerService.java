@@ -1,6 +1,7 @@
-package com.fbmoll.teaching.dataaccess.persistantData;
+package com.fbmoll.teaching.dataaccess.u4.persistantData.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fbmoll.teaching.dataaccess.u4.persistantData.data.Customer;
+import com.fbmoll.teaching.dataaccess.u4.persistantData.data.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,8 +13,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CustomerService {
-    final CustomerRepository repository;
 
+    private final CustomerRepository repository;
     public CustomerService(CustomerRepository repository) {
         this.repository = repository;
     }

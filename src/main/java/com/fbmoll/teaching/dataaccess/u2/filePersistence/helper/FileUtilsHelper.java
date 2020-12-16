@@ -1,6 +1,6 @@
-package com.fbmoll.teaching.dataaccess.helper;
+package com.fbmoll.teaching.dataaccess.u2.filePersistence.helper;
 
-import com.fbmoll.teaching.dataaccess.data.ConfigValues;
+import com.fbmoll.teaching.dataaccess.u2.filePersistence.data.ConfigValues;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

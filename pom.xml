@@ -11,13 +11,11 @@
 	<groupId>com.fbmoll.teaching</groupId>
 	<artifactId>dataaccess</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>dataaccess</name>
+	<name>DAM - 2021 - dataaccess</name>
 	<description>Sandboxing with Spring boot</description>
-
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

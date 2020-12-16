@@ -1,9 +1,8 @@
 package com.fbmoll.teaching.dataaccess.controller;
 
-import com.fbmoll.teaching.dataaccess.data.Student;
-import com.fbmoll.teaching.dataaccess.persistantData.Customer;
-import com.fbmoll.teaching.dataaccess.persistantData.CustomerService;
-import org.apache.commons.lang3.StringUtils;
+import com.fbmoll.teaching.dataaccess.u2.filePersistence.data.Student;
+import com.fbmoll.teaching.dataaccess.u4.persistantData.data.Customer;
+import com.fbmoll.teaching.dataaccess.u4.persistantData.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,20 +25,23 @@ import java.util.Map;
  *
  * @author berto (alberto.soto@gmail.com)
  */
-@RestController("/api/rest/v1")
+@RestController("/api/rest/v1/")
 public class MyRestController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
-    CustomerService customerService;
+    private final CustomerService customerService;
 
-    @GetMapping("/getCustomer")
-    public Iterable<Customer> getCustomer(){
+    public MyRestController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
+
+    @GetMapping("getCustomer")
+    public Iterable<Customer> getCustomer() {
         customerService.initDB();
         return customerService.getRepository().findAll();
     }
 
-    @GetMapping("/getStudent")
+    @GetMapping("getStudent")
     public Student getStudent(@RequestParam(value = "name", defaultValue = "Pepito") String name) {
         Student aux = new Student();
         aux.setName(name);
@@ -47,7 +49,7 @@ public class MyRestController {
         return aux;
     }
 
-    @GetMapping("/createStudents")
+    @GetMapping("createStudents")
     public List<Student> createStudents(@RequestParam(value = "q", defaultValue = "1")
                                                 Integer numStudents) {
         ArrayList<Student> arrData = new ArrayList<>();
@@ -59,8 +61,8 @@ public class MyRestController {
         return arrData;
     }
 
-    @RequestMapping(value = "/base"
-            , method = {RequestMethod.GET,RequestMethod.POST}
+    @RequestMapping(value = "base"
+            , method = {RequestMethod.GET, RequestMethod.POST}
             , produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map> getData(@RequestParam(value = "q", defaultValue = "1")
                                                Integer numParams) {

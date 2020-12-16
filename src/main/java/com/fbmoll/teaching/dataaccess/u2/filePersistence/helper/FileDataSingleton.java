@@ -1,4 +1,4 @@
-package com.fbmoll.teaching.dataaccess.helper;
+package com.fbmoll.teaching.dataaccess.u2.filePersistence.helper;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -6,8 +6,7 @@ import com.fasterxml.jackson.databind.AnnotationIntrospector;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
-import com.fbmoll.teaching.dataaccess.data.Catalog;
-import com.fbmoll.teaching.dataaccess.data.Product;
+import com.fbmoll.teaching.dataaccess.u2.filePersistence.data.Product;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

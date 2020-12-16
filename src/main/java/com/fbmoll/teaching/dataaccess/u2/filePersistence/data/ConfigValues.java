@@ -1,8 +1,6 @@
-package com.fbmoll.teaching.dataaccess.data;
+package com.fbmoll.teaching.dataaccess.u2.filePersistence.data;
 
 import org.apache.commons.lang3.StringUtils;
-
-import javax.security.auth.login.Configuration;
 
 /**
  * com.fbmoll.teaching.dataaccess.data

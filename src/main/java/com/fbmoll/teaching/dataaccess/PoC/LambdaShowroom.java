@@ -1,7 +1,6 @@
 package com.fbmoll.teaching.dataaccess.PoC;
 
-import com.fbmoll.teaching.dataaccess.data.Product;
-import org.apache.commons.lang3.StringUtils;
+import com.fbmoll.teaching.dataaccess.u2.filePersistence.data.Product;
 
 import java.util.ArrayList;
 import java.util.List;

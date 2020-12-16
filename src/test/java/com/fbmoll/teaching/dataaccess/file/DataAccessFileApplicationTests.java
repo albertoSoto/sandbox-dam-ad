@@ -1,9 +1,9 @@
 package com.fbmoll.teaching.dataaccess.file;
 
-import com.fbmoll.teaching.dataaccess.data.Catalog;
-import com.fbmoll.teaching.dataaccess.data.Product;
-import com.fbmoll.teaching.dataaccess.helper.DummyUtils;
-import com.fbmoll.teaching.dataaccess.helper.FileDataSingleton;
+import com.fbmoll.teaching.dataaccess.u2.filePersistence.data.Catalog;
+import com.fbmoll.teaching.dataaccess.u2.filePersistence.data.Product;
+import com.fbmoll.teaching.dataaccess.u2.filePersistence.helper.DummyUtils;
+import com.fbmoll.teaching.dataaccess.u2.filePersistence.helper.FileDataSingleton;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

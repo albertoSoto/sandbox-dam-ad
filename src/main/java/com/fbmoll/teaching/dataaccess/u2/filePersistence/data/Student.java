@@ -1,4 +1,4 @@
-package com.fbmoll.teaching.dataaccess.data;
+package com.fbmoll.teaching.dataaccess.u2.filePersistence.data;
 
 import java.util.Date;
 

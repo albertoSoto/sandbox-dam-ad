@@ -1,4 +1,4 @@
-package com.fbmoll.teaching.dataaccess.persistantData;
+package com.fbmoll.teaching.dataaccess.u4.persistantData.data;
 
 import org.springframework.data.repository.CrudRepository;
 
