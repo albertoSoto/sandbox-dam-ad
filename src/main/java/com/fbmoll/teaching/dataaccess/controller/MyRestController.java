@@ -26,7 +26,9 @@ import java.util.Map;
  *
  * @author berto (alberto.soto@gmail.com)
  */
-@RestController("/api/rest/v1/")
+@CrossOrigin(maxAge = 3600)
+@RestController
+@RequestMapping(value = "/api/rest/v1")
 public class MyRestController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
