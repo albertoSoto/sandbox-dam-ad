@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -65,7 +66,7 @@ public class MyRestController {
             , method = {RequestMethod.GET, RequestMethod.POST}
             , produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map> getData(@RequestParam(value = "q", defaultValue = "1")
-                                               Integer numParams) {
+                                               Integer numParams, HttpServletRequest rq) {
         try {
             Map<String, Object> map = new HashMap<>();
             for (int i = 0; i < numParams; i++) {
